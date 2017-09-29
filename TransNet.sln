@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.15
+MinimumVisualStudioVersion = 15.0.26124.0
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5C2B2227-D4DA-425B-8EC6-37D9C220EDA1}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		build.cake = build.cake
+		build.ps1 = build.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{ED5D2DC6-08F0-4FF6-A168-24F58C3706C2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{F63B09BA-E971-4DEA-AD9D-02EC0A0CEAEC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransNet", "src\TransNet\TransNet.csproj", "{47771707-2DF7-4C31-BB56-B21132646490}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransNet_Test", "test\TransNet_Test\TransNet_Test.csproj", "{9F224D19-F44E-46FD-87BE-FDBB85CBF860}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{47771707-2DF7-4C31-BB56-B21132646490}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47771707-2DF7-4C31-BB56-B21132646490}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47771707-2DF7-4C31-BB56-B21132646490}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47771707-2DF7-4C31-BB56-B21132646490}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F224D19-F44E-46FD-87BE-FDBB85CBF860}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F224D19-F44E-46FD-87BE-FDBB85CBF860}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F224D19-F44E-46FD-87BE-FDBB85CBF860}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F224D19-F44E-46FD-87BE-FDBB85CBF860}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{47771707-2DF7-4C31-BB56-B21132646490} = {ED5D2DC6-08F0-4FF6-A168-24F58C3706C2}
+		{9F224D19-F44E-46FD-87BE-FDBB85CBF860} = {F63B09BA-E971-4DEA-AD9D-02EC0A0CEAEC}
+	EndGlobalSection
+EndGlobal

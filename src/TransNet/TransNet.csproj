@@ -6,6 +6,10 @@
     <Company />
     <Description>Library to write Maltego transformations.</Description>
     <Copyright>Stefan Hausotte</Copyright>
+    <RepositoryUrl>https://github.com/secana/TransNet</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/secana/TransNet</PackageProjectUrl>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/secana/TransNet/master/LICENSE</PackageLicenseUrl>
+    <PackageTags>Maltego Transformations</PackageTags>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -14,6 +18,8 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DocumentationFile>bin\Release\netstandard2.0\TransNet.xml</DocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsAsErrors />
   </PropertyGroup>
 
 </Project>

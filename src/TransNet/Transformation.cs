@@ -7,8 +7,15 @@ using System.Xml.Linq;
 
 namespace TransNet
 {
+    /// <summary>
+    /// This class provides the capabilities to read and write
+    /// Maltego transformations.
+    /// </summary>
     public class Transformation : ITransformable
     {
+        /// <summary>
+        /// List with input arguments from the command line.
+        /// </summary>
         public Dictionary<string, string> InputArguments { get; }
 
         /// <summary>
@@ -27,7 +34,7 @@ namespace TransNet
         private string _optionalParameter = null;
 
         /// <summary>
-        ///     Create an abstract representation of a Maltego transformation.
+        ///     Create a representation of a Maltego transformation.
         /// </summary>
         /// <param name="args">Command line arguments given to a transformation application by Maltego.</param>
         public Transformation(string[] args)
@@ -35,11 +42,19 @@ namespace TransNet
             InputArguments = ParseSTDIN(args);
         }
 
+        /// <summary>
+        ///     Create a representation of a Maltego transformation.
+        /// </summary>
+        /// <param name="xml">Maltego transformation XML</param>
         public Transformation(string xml)
         {
             ParseTransformOutput(xml);
         }
 
+        /// <summary>
+        /// Convert the whole transformation into an XML readable by Maltego.
+        /// </summary>
+        /// <returns>Maltego readable XML.</returns>
         public string TransformToXML()
         {
             var settings = new XmlWriterSettings {OmitXmlDeclaration = true};

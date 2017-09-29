@@ -5,14 +5,43 @@ using System.Xml;
 
 namespace TransNet
 {
+    /// <summary>
+    /// Represents an entity in Maltego.
+    /// </summary>
     public class Entity : ITransformable
     {
+        /// <summary>
+        /// Type of the entity. Has to be one available in Maltego.
+        /// </summary>
         public string EntityType { get; }
+
+        /// <summary>
+        /// Value of the entity. This will be shown on the entity in Maltego.
+        /// </summary>
         public string Value { get; }
+
+        /// <summary>
+        /// Weight of the entity.
+        /// </summary>
         public int Weight { get; }
+
+        /// <summary>
+        /// Additional fields for the entity. Will be shown in the properties panel
+        /// in Maltego.
+        /// </summary>
         public List<AdditionalField> AdditionalFields { get; }
+
+        /// <summary>
+        /// Is true if the entity has an edge label, false if not.
+        /// </summary>
         public bool HasEdgeLabel { get; private set; }
 
+        /// <summary>
+        /// Create an new Maltego entity.
+        /// </summary>
+        /// <param name="entityType">Type of the Maltego entity.</param>
+        /// <param name="value">Value of the Maltego entity.</param>
+        /// <param name="weight">Weight of the Maltego entity.</param>
         public Entity(string entityType, string value, int weight = 0)
         {
             EntityType = entityType ?? throw new ArgumentNullException(nameof(entityType), "EntityType cannot be null.");
@@ -48,6 +77,10 @@ namespace TransNet
             HasEdgeLabel = true;
         }
 
+        /// <summary>
+        /// Convert the entity object to an XML readable by Maltego.
+        /// </summary>
+        /// <returns>The transformation result readable by Maltego.</returns>
         public string TransformToXML()
         {
             var settings = new XmlWriterSettings {OmitXmlDeclaration = true, CheckCharacters = false};
@@ -86,7 +119,10 @@ namespace TransNet
         }
 
         
-
+        /// <summary>
+        /// Additional fields are extra information for an entity which
+        /// are shown in the properties panel of the entity in Maltego.
+        /// </summary>
         public class AdditionalField : ITransformable
         {
             /// <summary>
@@ -119,11 +155,31 @@ namespace TransNet
                 }
             }
 
+            /// <summary>
+            /// Name of the additional field
+            /// </summary>
             public string Name { get; }
+
+            /// <summary>
+            /// Display name of the additional field.
+            /// </summary>
             public string DisplayName { get; }
+
+            /// <summary>
+            /// MatchingRule (loose, strict) for the additional field.
+            /// </summary>
             public string MatchingRule { get; }
+
+            /// <summary>
+            /// Value of the additional field.
+            /// </summary>
             public string Value { get; }
 
+            /// <summary>
+            /// Transform the entity object into an XML element usable
+            /// by Maltego.
+            /// </summary>
+            /// <returns>Maltego entity XML.</returns>
             public string TransformToXML()
             {
                 var settings = new XmlWriterSettings {OmitXmlDeclaration = true};

@@ -1,4 +1,5 @@
 var target = Argument("target", "Default");
+var apiKey = Argument<string>("apiKey", null);	// ./build.ps1 --target push -apiKey="your github api key"                                            
 var testFailed = false;
 var solutionDir = System.IO.Directory.GetCurrentDirectory();
 var testResultDir = System.IO.Path.Combine(solutionDir, "testResults");
@@ -18,6 +19,7 @@ Task("Clean")
 	.IsDependentOn("PrepareDirectories")
 	.Does(() =>
 	{
+		var delSettings = new DeleteDirectorySettings { Recursive = true, Force = true };
 		CleanDirectory(testResultDir);
 		CleanDirectory(artifactDir);
 
@@ -25,9 +27,9 @@ Task("Clean")
 		var objDirs = GetDirectories("./**/obj");
 		var testResDirs = GetDirectories("./**/test-results");
 		
-		DeleteDirectories(binDirs, true);
-		DeleteDirectories(objDirs, true);
-		DeleteDirectories(testResDirs, true);
+		DeleteDirectories(binDirs, delSettings);
+		DeleteDirectories(objDirs, delSettings);
+		DeleteDirectories(testResDirs, delSettings);
 	});
 
 Task("Restore")
@@ -141,18 +143,25 @@ Task("Publish")
 				Configuration = "Release"
 			};
 			DotNetCorePublish(project.FullPath, settings);
-
-			// Check if an appsettings.json exits and copy it to the
-			// output directory.
-			var appsettingsFile = System.IO.Path.Combine(projectDir, "appsettings.json");
-			var outAppsettingsFile = System.IO.Path.Combine(outputDir, "appsettings.json");
-			if(FileExists(appsettingsFile))
-			{
-				Information("Copy {0} to {1}", appsettingsFile, outAppsettingsFile);
-				CopyFile(appsettingsFile, outAppsettingsFile);
-			}
-
 		}
+	});
+
+Task("Push")
+	.IsDependentOn("Pack")
+	.Does(() =>
+	{
+		var package = GetFiles($"{artifactDir}/TransNet.*.nupkg").ElementAt(0);
+        var source = "https://www.nuget.org/api/v2/package";
+
+        if(apiKey==null)
+            throw new ArgumentNullException(nameof(apiKey), "The \"apiKey\" argument must be set for this task.");
+
+        Information($"Push {package} to {source}");
+
+        NuGetPush(package, new NuGetPushSettings {
+            Source = source,
+            ApiKey = apiKey
+        });
 	});
 
 Task("Default")
@@ -160,8 +169,9 @@ Task("Default")
 	.Does(() =>
 	{
 		Information("Build and test the whole solution.");
-		Information("To pack (nuget) the application use the cake build argument: --target Pack");
-		Information("To publish (to run it somewhere else) the application use the cake build argument: --target Publish");
+		Information("To pack (nuget) the application use the cake build argument: -Target Pack");
+		Information("To publish (to run it somewhere else) the application use the cake build argument: -Target Publish");
+		Information("To push the package to nuget.org use the cake build argument: -Target Push --apiKey=\"your nuget.org API key\"");
 	});
 
 RunTarget(target);

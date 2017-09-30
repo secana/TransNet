@@ -8,6 +8,17 @@
 [Aa]rtifacts/
 [Tt]estResults/
 
+###############
+#    DocFX   #
+###############
+/**/DROP/
+/**/TEMP/
+/**/packages/
+/**/bin/
+/**/obj/
+_site
+
+
 # User-specific files
 *.suo
 *.user

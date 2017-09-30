@@ -1,3 +1,6 @@
+#addin "Cake.DocFx"
+#tool "docfx.console"
+
 var target = Argument("target", "Default");
 var apiKey = Argument<string>("apiKey", null);	// ./build.ps1 --target push -apiKey="your github api key"                                            
 var testFailed = false;
@@ -163,6 +166,9 @@ Task("Push")
             ApiKey = apiKey
         });
 	});
+
+
+Task("Doc").Does(() => DocFxBuild());
 
 Task("Default")
 	.IsDependentOn("Test")

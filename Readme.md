@@ -40,6 +40,29 @@ namespace MyTransform
 
 ```
 
+You can reach the same result with the floating API. The code above looks like this:
+
+
+```csharp
+using System;
+using TransNet;
+
+namespace MyTransform
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var transfrom = new Transformation(args)
+                 .AddEntity("Person", "Alice Yu");
+
+            Console.WriteLine(transfrom.TransformToXML());
+        }
+    }
+}
+
+```
+
 The example below shows how you can add additional fields to your returned entity and how to add an edge label with some properties.
 
 ```csharp
@@ -75,6 +98,35 @@ namespace MyTransform
 
             // Add the entity to return to the transformation.
             transfrom.Entities.Add(person1);
+
+            Console.WriteLine(transfrom.TransformToXML());
+        }
+    }
+}
+```
+
+You can reach the same result with the floating API. The code above looks like this:
+
+```csharp
+using System;
+using System.Collections.Generic;
+using TransNet;
+
+namespace MyTransform
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+             var transfrom = new Transformation(args)
+                .AddEntity("Person", "Alice Yu")
+                .AddAdditionalField("Age", "Age", "45")
+                .AddAdditionalField("HairColor", "Hair Color", "Blond")
+                .AddEdgeLabel("My own transformation.", new List<Tuple<string, string>>
+                {
+                    new Tuple<string, string>("My first edge property", "My first edge property value"),
+                    new Tuple<string, string>("My second edge property", "My second edge property value")
+                });
 
             Console.WriteLine(transfrom.TransformToXML());
         }

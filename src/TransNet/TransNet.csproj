@@ -11,7 +11,8 @@
     <PackageLicenseUrl>https://raw.githubusercontent.com/secana/TransNet/master/LICENSE</PackageLicenseUrl>
     <PackageTags>Maltego Transformations</PackageTags>
     <PackageIconUrl>TransNet/src/TransNet/logo/logo.png</PackageIconUrl>
-    <Version>1.0.1</Version>
+    <Version>1.1.0</Version>
+    <PackageReleaseNotes>Added extension methods for a better API usage</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

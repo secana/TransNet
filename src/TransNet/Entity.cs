@@ -58,7 +58,8 @@ namespace TransNet
         ///     Properties of the edge as a tuple where Item1 is the property name
         ///     and Item2 is the property value.
         /// </param>
-        public void AddEdgeLabel(string label, List<Tuple<string, string>> properties = null)
+        /// <returns>This entity object.</returns>
+        public Entity AddEdgeLabel(string label, List<Tuple<string, string>> properties = null)
         {
             if (HasEdgeLabel)
                 throw new InvalidOperationException("Only one edge label per edge is allowed!");
@@ -75,6 +76,8 @@ namespace TransNet
             }
 
             HasEdgeLabel = true;
+
+            return this;
         }
 
         /// <summary>

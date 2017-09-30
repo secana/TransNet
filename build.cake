@@ -168,7 +168,12 @@ Task("Push")
 	});
 
 
-Task("Doc").Does(() => DocFxBuild());
+// This taks does not work currently because DocFX cannot build for .Net Standard 2.0
+Task("Doc").Does(() => 
+	{
+		DocFxMetadata();
+		DocFxBuild();
+	});
 
 Task("Default")
 	.IsDependentOn("Test")

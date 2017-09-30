@@ -110,7 +110,7 @@ namespace TransNet_Test
         private string GetExampleXML()
         {
             return
-                "<MaltegoMessage><MaltegoTransformResponseMessage><_entities><Entity Type=\"EntityType\"><Value>Value</Value><Weight>1</Weight><AdditionalFields><Field Name=\"AdditionalField\" DisplayName=\"DisplayName\" MatchingRule=\"strict\">Value</Field></AdditionalFields></Entity></_entities></MaltegoTransformResponseMessage></MaltegoMessage>";
+                "<MaltegoMessage><MaltegoTransformResponseMessage><Entities><Entity Type=\"EntityType\"><Value>Value</Value><Weight>1</Weight><AdditionalFields><Field Name=\"AdditionalField\" DisplayName=\"DisplayName\" MatchingRule=\"strict\">Value</Field></AdditionalFields></Entity></Entities></MaltegoTransformResponseMessage></MaltegoMessage>";
         }
     }
 }

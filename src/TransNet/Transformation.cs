@@ -66,7 +66,7 @@ namespace TransNet
                     xw.WriteStartDocument();
                     xw.WriteStartElement("MaltegoMessage");
                     xw.WriteStartElement("MaltegoTransformResponseMessage");
-                    xw.WriteStartElement("_entities");
+                    xw.WriteStartElement("Entities");
 
                     foreach (var e in Entities)
                     {

@@ -19,6 +19,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransNet", "src\TransNet\Tr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransNet_Test", "test\TransNet_Test\TransNet_Test.csproj", "{9F224D19-F44E-46FD-87BE-FDBB85CBF860}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{8567E27C-7FFD-4B25-AA98-A4A42E434891}"
+	ProjectSection(SolutionItems) = preProject
+		Resources\Maltego-Local-Transform-1.png = Resources\Maltego-Local-Transform-1.png
+		Resources\Maltego-Local-Transform-2.png = Resources\Maltego-Local-Transform-2.png
+		Resources\Maltego-Local-Transform-Result.png = Resources\Maltego-Local-Transform-Result.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +47,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{47771707-2DF7-4C31-BB56-B21132646490} = {ED5D2DC6-08F0-4FF6-A168-24F58C3706C2}
 		{9F224D19-F44E-46FD-87BE-FDBB85CBF860} = {F63B09BA-E971-4DEA-AD9D-02EC0A0CEAEC}
+		{8567E27C-7FFD-4B25-AA98-A4A42E434891} = {5C2B2227-D4DA-425B-8EC6-37D9C220EDA1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6D4EE871-DD02-436A-BFCF-661426BFD545}

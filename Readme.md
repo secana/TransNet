@@ -1,7 +1,9 @@
 # TransNet
 TransNet is a .Net Standard library to create [Maltego](https://www.paterva.com/web7/buy/maltego-clients.php) transformations.
 
+[![GitHub license](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://raw.githubusercontent.com/secana/TransNet/master/LICENSE)
 [![Build status](https://ci.appveyor.com/api/projects/status/jffcahmtd6u73p6n/branch/master?svg=true)](https://ci.appveyor.com/project/secana/transnet/branch/master)
+[![NuGet](https://img.shields.io/badge/nuget-v1.1.1-blue.svg)](https://www.nuget.org/packages/TransNet/)
 
 ## Writing a transformation with *TransNet*
 The following example shows how to write a Maltego transformation with *TransNet*.
@@ -11,7 +13,7 @@ The following example shows how to write a Maltego transformation with *TransNet
 To use *TransNet* in your project just install the [TransNet Nuget package](https://www.nuget.org/packages/TransNet/) into your project.
 
 ### The Code
-Writing a transform is pretty straight forward. Maltego will call your transfromation with command line arguments, which are parsed by *TransNet*. 
+Writing a transform is pretty straight forward. Maltego will call your transformation with command line arguments, which are parsed by *TransNet*. 
 The resulting entities which you want to return have to be printed to *stdout*.
 
 A minimal transformation which returns a "Person" entity looks like this:
@@ -26,16 +28,16 @@ namespace MyTransform
     {
         static void Main(string[] args)
         {
-            // Create a new tranfsorm based on the command line input from Maltego.
-            var transfrom = new Transformation(args);
+            // Create a new transform based on the command line input from Maltego.
+            var transform = new Transformation(args);
 
             // Add an entity to return.
             var person1 = new Entity("Person", "Alice Yu");
 
             // Add the entity to return to the transformation.
-            transfrom.Entities.Add(person1);
+            transform.Entities.Add(person1);
 
-            Console.WriteLine(transfrom.TransformToXML());
+            Console.WriteLine(transform.TransformToXML());
         }
     }
 }
@@ -55,8 +57,8 @@ namespace MyTransform
     {
         static void Main(string[] args)
         {
-            // Create a new tranfsorm based on the command line input from Maltego.
-            var transfrom = new Transformation(args);
+            // Create a new transform based on the command line input from Maltego.
+            var transform = new Transformation(args);
 
             // Add an entity to return.
             var person1 = new Entity("Person", "Alice Yu");
@@ -76,9 +78,9 @@ namespace MyTransform
             });
 
             // Add the entity to return to the transformation.
-            transfrom.Entities.Add(person1);
+            transform.Entities.Add(person1);
 
-            Console.WriteLine(transfrom.TransformToXML());
+            Console.WriteLine(transform.TransformToXML());
         }
     }
 }
@@ -87,25 +89,25 @@ namespace MyTransform
 #### Access field values
 If your transformation needs some field values from the input entity provided by Maltego to your transformation via command line arguments use this:
 ```csharp
-var fieldValue = transfrom.InputArguments["fieldName"];
+var fieldValue = transform.InputArguments["fieldName"];
 ```
 This lets you access the field "fieldName" from the input entity.
 
 
 #### Debug prints
-If you need to output any debug information to Maltgo which gets shown in the output panel use:
+If you need to output any debug information to Maltego which gets shown in the output panel use:
 
 ```csharp
-transfrom.PrintDebug("My debug message");
+transform.PrintDebug("My debug message");
 ```
 
 To set the Maltego progress bar to a specific percentage while your transformation runs use:
 
 #### Progress bar
 ```csharp
-transfrom.PrintProgess(50);
+transform.PrintProgress(50);
 ```
-This will set the progess bar to 50%.
+This will set the progress bar to 50%.
 
 ## Add a transformation to Maltego
 To add your own transformation to Maltego follow the next steps:

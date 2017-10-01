@@ -18,6 +18,8 @@
 /**/obj/
 _site
 
+# VS Code
+.vscode/
 
 # User-specific files
 *.suo

@@ -129,7 +129,7 @@ namespace TransNet
         ///     Sets the progress bar in Maltego.
         /// </summary>
         /// <param name="percentage">Number of percent to set the progress bar to.</param>
-        public void PrintProgess(int percentage)
+        public void PrintProgress(int percentage)
         {
             if (percentage < 0 || percentage > 100)
                 throw new ArgumentOutOfRangeException(nameof(percentage), "Percentage has to be in range 0-100.");

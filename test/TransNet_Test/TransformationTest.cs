@@ -82,7 +82,7 @@ namespace TransNet_Test
             var sw = new StringWriter();
             Console.SetError(sw);
 
-            transform.PrintProgess(50);
+            transform.PrintProgress(50);
             var actual = sw.ToString().TrimEnd();
 
             Assert.Equal("% 50", actual);
@@ -95,7 +95,7 @@ namespace TransNet_Test
         {
             var transform = new Transformation(new[] { "EntityValue", "field1=value1#field2=value2" });
 
-            Assert.Throws<ArgumentOutOfRangeException>(() => transform.PrintProgess(percentage));
+            Assert.Throws<ArgumentOutOfRangeException>(() => transform.PrintProgress(percentage));
         }
 
         private Entity GetExampleEntity()

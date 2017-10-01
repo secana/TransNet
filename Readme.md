@@ -1,6 +1,8 @@
 # TransNet
 TransNet is a .Net Standard library to create [Maltego](https://www.paterva.com/web7/buy/maltego-clients.php) transformations.
 
+[![Build status](https://ci.appveyor.com/api/projects/status/jffcahmtd6u73p6n/branch/master?svg=true)](https://ci.appveyor.com/project/secana/transnet/branch/master)
+
 ## Writing a transformation with *TransNet*
 The following example shows how to write a Maltego transformation with *TransNet*.
 

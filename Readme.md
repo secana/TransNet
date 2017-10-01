@@ -57,10 +57,10 @@ namespace MyTransform
     {
         static void Main(string[] args)
         {
-            var transfrom = new Transformation(args)
+            var transform = new Transformation(args)
                  .AddEntity("Person", "Alice Yu");
 
-            Console.WriteLine(transfrom.TransformToXML());
+            Console.WriteLine(transform.TransformToXML());
         }
     }
 }
@@ -122,7 +122,7 @@ namespace MyTransform
     {
         static void Main(string[] args)
         {
-             var transfrom = new Transformation(args)
+             var transform = new Transformation(args)
                 .AddEntity("Person", "Alice Yu")
                 .AddAdditionalField("Age", "Age", "45")
                 .AddAdditionalField("HairColor", "Hair Color", "Blond")
@@ -132,7 +132,7 @@ namespace MyTransform
                     new Tuple<string, string>("My second edge property", "My second edge property value")
                 });
 
-            Console.WriteLine(transfrom.TransformToXML());
+            Console.WriteLine(transform.TransformToXML());
         }
     }
 }

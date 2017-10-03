@@ -1,7 +1,7 @@
 # TransNet
 TransNet is a .Net Standard library to create [Maltego](https://www.paterva.com/web7/buy/maltego-clients.php) transformations.
 
-[![GitHub license](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://raw.githubusercontent.com/secana/TransNet/master/LICENSE)
+[![license](https://img.shields.io/github/license/secana/transnet.svg)](https://raw.githubusercontent.com/secana/TransNet/master/LICENSE)
 [![Build status](https://ci.appveyor.com/api/projects/status/jffcahmtd6u73p6n/branch/master?svg=true)](https://ci.appveyor.com/project/secana/transnet/branch/master)
 [![NuGet](https://img.shields.io/nuget/v/TransNet.svg)](https://www.nuget.org/packages/TransNet/)
 [![NuGet](https://img.shields.io/nuget/dt/TransNet.svg)](https://www.nuget.org/packages/TransNet/)

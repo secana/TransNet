@@ -11,7 +11,7 @@
     <PackageLicenseUrl>https://raw.githubusercontent.com/secana/TransNet/master/LICENSE</PackageLicenseUrl>
     <PackageTags>Maltego Transformations</PackageTags>
     <PackageIconUrl>https://github.com/secana/TransNet/blob/master/src/TransNet/logo/logo.png</PackageIconUrl>
-    <Version>1.1.1</Version>
+    <Version>1.1.2</Version>
     <PackageReleaseNotes>Added extension methods for a better API usage</PackageReleaseNotes>
   </PropertyGroup>
 

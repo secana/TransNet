@@ -8,9 +8,10 @@
     <Copyright>Stefan Hausotte</Copyright>
     <RepositoryUrl>https://github.com/secana/TransNet</RepositoryUrl>
     <PackageProjectUrl>https://github.com/secana/TransNet</PackageProjectUrl>
-    <PackageLicenseUrl>https://raw.githubusercontent.com/secana/TransNet/master/LICENSE</PackageLicenseUrl>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageTags>Maltego Transformations</PackageTags>
     <PackageIconUrl>https://raw.githubusercontent.com/secana/TransNet/master/src/TransNet/logo/logo.png</PackageIconUrl>
+    <PackageIcon>logo.png</PackageIcon>
     <Version>1.2.0</Version>
     <PackageReleaseNotes>Added extension methods for a better API usage</PackageReleaseNotes>
   </PropertyGroup>
@@ -24,5 +25,9 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <WarningsAsErrors />
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include=".\logo\logo.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
 
 </Project>

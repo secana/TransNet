@@ -1,8 +1,5 @@
-#addin "Cake.DocFx"
-#tool "docfx.console"
-
 var target = Argument("target", "Default");
-var apiKey = Argument<string>("apiKey", null);	// ./build.ps1 --target push -apiKey="your github api key"                                            
+var apiKey = Argument<string>("apiKey", null);                                           
 var testFailed = false;
 var solutionDir = System.IO.Directory.GetCurrentDirectory();
 var testResultDir = System.IO.Path.Combine(solutionDir, "testResults");
@@ -153,7 +150,7 @@ Task("Push")
 	.IsDependentOn("Pack")
 	.Does(() =>
 	{
-		var package = GetFiles($"{artifactDir}/TransNet.*.nupkg").ElementAt(0);
+		var package = GetFiles($"{artifactDir}/TransNet.*.nupkg").ElementAt(0).FullPath;
         var source = "https://www.nuget.org/api/v2/package";
 
         if(apiKey==null)
@@ -161,18 +158,10 @@ Task("Push")
 
         Information($"Push {package} to {source}");
 
-        NuGetPush(package, new NuGetPushSettings {
+        DotNetCoreNuGetPush(package, new DotNetCoreNuGetPushSettings {
             Source = source,
             ApiKey = apiKey
         });
-	});
-
-
-// This taks does not work currently because DocFX cannot build for .Net Standard 2.0
-Task("Doc").Does(() => 
-	{
-		DocFxMetadata();
-		DocFxBuild();
 	});
 
 Task("Default")
@@ -180,9 +169,9 @@ Task("Default")
 	.Does(() =>
 	{
 		Information("Build and test the whole solution.");
-		Information("To pack (nuget) the application use the cake build argument: -Target Pack");
-		Information("To publish (to run it somewhere else) the application use the cake build argument: -Target Publish");
-		Information("To push the package to nuget.org use the cake build argument: -Target Push --apiKey=\"your nuget.org API key\"");
+		Information("To pack (nuget) the application use the cake build argument: --target=Pack");
+		Information("To publish (to run it somewhere else) the application use the cake build argument: --Target=Publish");
+		Information("To push the package to nuget.org use the cake build argument: --target=Push --apiKey=\"your nuget.org API key\"");
 	});
 
 RunTarget(target);
